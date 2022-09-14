@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AC330A1828D15967004BD237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC330A1728D15967004BD237 /* AppDelegate.swift */; };
 		AC330A1A28D15967004BD237 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC330A1928D15967004BD237 /* SceneDelegate.swift */; };
 		AC330A1C28D15967004BD237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC330A1B28D15967004BD237 /* ViewController.swift */; };
-		AC330A1F28D15967004BD237 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC330A1D28D15967004BD237 /* Main.storyboard */; };
 		AC330A2128D15969004BD237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC330A2028D15969004BD237 /* Assets.xcassets */; };
 		AC330A2428D15969004BD237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC330A2228D15969004BD237 /* LaunchScreen.storyboard */; };
 		AC330A2D28D15B46004BD237 /* Mountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC330A2C28D15B46004BD237 /* Mountain.swift */; };
@@ -21,7 +20,6 @@
 		AC330A1728D15967004BD237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC330A1928D15967004BD237 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AC330A1B28D15967004BD237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AC330A1E28D15967004BD237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC330A2028D15969004BD237 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC330A2328D15969004BD237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC330A2528D15969004BD237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,7 +60,6 @@
 				AC330A2B28D15B25004BD237 /* Model */,
 				AC330A1928D15967004BD237 /* SceneDelegate.swift */,
 				AC330A1B28D15967004BD237 /* ViewController.swift */,
-				AC330A1D28D15967004BD237 /* Main.storyboard */,
 				AC330A2028D15969004BD237 /* Assets.xcassets */,
 				AC330A2228D15969004BD237 /* LaunchScreen.storyboard */,
 				AC330A2528D15969004BD237 /* Info.plist */,
@@ -114,7 +111,7 @@
 				};
 			};
 			buildConfigurationList = AC330A0F28D15967004BD237 /* Build configuration list for PBXProject "YaatonMountainProject" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -138,7 +135,6 @@
 			files = (
 				AC330A2428D15969004BD237 /* LaunchScreen.storyboard in Resources */,
 				AC330A2128D15969004BD237 /* Assets.xcassets in Resources */,
-				AC330A1F28D15967004BD237 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,14 +155,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AC330A1D28D15967004BD237 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AC330A1E28D15967004BD237 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AC330A2228D15969004BD237 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -303,7 +291,6 @@
 				INFOPLIST_FILE = YaatonMountainProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -330,7 +317,6 @@
 				INFOPLIST_FILE = YaatonMountainProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
