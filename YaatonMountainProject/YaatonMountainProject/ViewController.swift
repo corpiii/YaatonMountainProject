@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.layer.borderWidth = 2
-        stackView.layer.borderColor = UIColor.systemGray3.cgColor
+        stackView.layer.borderColor = UIColor.systemPink.cgColor
         stackView.layer.cornerRadius = 30
         stackView.isLayoutMarginsRelativeArrangement = true
         stackView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
@@ -28,10 +28,6 @@ final class ViewController: UIViewController {
     private let mountainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        imageView.widthAnchor.constraint(equalToConstant: 350).isActive = true
-//        imageView.heightAnchor.constraint(equalToConstant: 350).isActive = true
-//        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -39,7 +35,7 @@ final class ViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.setContentCompressionResistancePriority(.required, for: .vertical)
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -55,13 +51,13 @@ final class ViewController: UIViewController {
         let segmentControl = UISegmentedControl(items: ["국내산", "외국산"])
         segmentControl.translatesAutoresizingMaskIntoConstraints = false
         segmentControl.selectedSegmentIndex = 0
+        segmentControl.backgroundColor = .systemPink
         return segmentControl
     }()
     
     private let pickerView: UIPickerView = {
         let pickerView = UIPickerView()
         pickerView.translatesAutoresizingMaskIntoConstraints = false
-        
         return pickerView
     }()
 
@@ -81,13 +77,11 @@ final class ViewController: UIViewController {
     }
     
     private func setupMountainStackView() {
-//        mountainInfoStackView.backgroundColor = .green
         mountainInfoStackView.addArrangedSubview(mountainImageView)
         mountainInfoStackView.addArrangedSubview(mountainHeightInfoLabel)
         mountainInfoStackView.addArrangedSubview(mountainDescriptionLabel)
         
         view.addSubview(mountainInfoStackView)
-        
         
         NSLayoutConstraint.activate([
             mountainImageView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.7),
@@ -116,15 +110,14 @@ final class ViewController: UIViewController {
     }
     
     @objc func didValueChanged(_ sender: UISegmentedControl) {
-        print(sender.selectedSegmentIndex)
-        // 배열을 국내산/ 외국산 스위칭
         if sender.selectedSegmentIndex == 0 {
             self.mountains = MountainData.koreanMountain
         } else if sender.selectedSegmentIndex == 1 {
             self.mountains = MountainData.foreignMountain
         }
-        
-        pickerView.reloadAllComponents()
+        let selectedRow = pickerView.selectedRow(inComponent: 0)
+        setupData(at: selectedRow)
+        self.pickerView.reloadAllComponents()
     }
     
     private func setupPickerView() {
@@ -133,11 +126,17 @@ final class ViewController: UIViewController {
         view.addSubview(pickerView)
         NSLayoutConstraint.activate([
             pickerView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
-//            pickerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3),
             pickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             pickerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
             pickerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    private func setupData(at row: Int) {
+        let mountain = mountains[row]
+        mountainImageView.image = mountain.image
+        mountainHeightInfoLabel.text = "높이 : " + mountain.height
+        mountainDescriptionLabel.text = mountain.description
     }
 }
 
@@ -160,12 +159,6 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("select=\(row)")
-        let mountain = mountains[row]
-        mountainImageView.image = mountain.image
-        mountainHeightInfoLabel.text = "높이 : " + mountain.height
-        mountainDescriptionLabel.text = mountain.description
-        
-        // row 를 기반하여 리스트를 조회한 결과 값들을 mountainInfoStack에 표현
+        setupData(at: row)
     }
 }
