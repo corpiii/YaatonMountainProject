@@ -13,13 +13,43 @@ final class ViewController: UIViewController {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        
         return stackView
     }()
     
-    private let label: UILabel = {
+    private let mountainInfoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 50)
+        
+        return stackView
+    }()
+    
+    private let mountainImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "plus")
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+
+        return imageView
+    }()
+    
+    private let mountainHeightInfoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "테스트 텍스트"
+        label.text = "높이 : "
+        return label
+    }()
+    
+    private let mountainDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "정보"
         return label
     }()
 
@@ -27,6 +57,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         setupInitialView()
         setupMainStackView()
+        setupMountainStackView()
     }
     
     private func setupInitialView() {
@@ -42,5 +73,15 @@ final class ViewController: UIViewController {
             mainStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             mainStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
+    }
+    
+    private func setupMountainStackView() {
+        mountainInfoStackView.backgroundColor = .green
+        mountainInfoStackView.addArrangedSubview(mountainImageView)
+        mountainInfoStackView.addArrangedSubview(mountainHeightInfoLabel)
+        mountainInfoStackView.addArrangedSubview(mountainDescriptionLabel)
+        
+        mainStackView.addArrangedSubview(mountainInfoStackView)
+        
     }
 }
