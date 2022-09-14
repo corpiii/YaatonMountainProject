@@ -8,9 +8,8 @@
 import UIKit
 
 struct Mountain {
-    let isKoreanMountain: Bool
     let name: String
-    let height: Double
-    let image: UIImage
+    let height: String
+    let image: UIImage?
     let description: String
 }
